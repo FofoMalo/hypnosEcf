@@ -1,0 +1,21 @@
+$primary:#020A1E;
+$secondary:#11FFB4;
+$success:#020A1E;
+$info:#11ffb4;
+$light-dark:hsla(223, 88%, 6%, 0.30);
+$text-color:$secondary;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-dark {
+  color: $secondary;
+  background-color: $light-dark;
+}
+.bg-light {
+  color: $primary;
+  background-color: #11ffb4;
+}
