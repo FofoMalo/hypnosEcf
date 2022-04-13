@@ -1,0 +1,97 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hotel index{% endblock %}
+
+{% block body %}
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Hôtels</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+              <li class="breadcrumb-item active">Hôtel active</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Liste des Hotels</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          Groupe Hotelier Hypsos
+          <h1>Hotel liste</h1>
+
+          <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Town</th>
+                <th>Adress</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Create_at</th>
+                <th>Update_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                <td>{{ hotel.id }}</td>
+                <td>{{ hotel.name }}</td>
+                <td>{{ hotel.town }}</td>
+                <td>{{ hotel.adress }}</td>
+                <td>{{ hotel.description }}</td>
+                <td>{{ hotel.image }}</td>
+                <td>{{ hotel.createAt ? hotel.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ hotel.updateAt ? hotel.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_hotel_show', {'id': hotel.id}) }}">show</a>
+                    <a href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+      <a href="{{ path('app_hotel_new') }}">Create new</a>
+  </div>
+        <!-- /.card-body -->  
+        <div class="card-footer">
+          Groupe hotelier hypsos
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}
