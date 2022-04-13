@@ -28,7 +28,7 @@ class HotelController extends AbstractController
         $form = $this->createForm(HotelType::class, $hotel);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) { 
             $hotelRepository->add($hotel);
             return $this->redirectToRoute('app_hotel_index', [], Response::HTTP_SEE_OTHER);
         }
