@@ -1,6 +1,6 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Hotel{% endblock %}
 
 {% block body %}
 
@@ -45,54 +45,50 @@
         </div>
         <!-- /.card-body -->
 
-    <h1>Category</h1>
+    <h1>Hotel</h1>
 
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ category.id }}</td>
+                <td>{{ hotel.id }}</td>
             </tr>
             <tr>
-                <th>ParentId</th>
-                <td>{{ category.parentId }}</td>
+                <th>Name</th>
+                <td>{{ hotel.name }}</td>
             </tr>
             <tr>
-                <th>Title</th>
-                <td>{{ category.title }}</td>
+                <th>Town</th>
+                <td>{{ hotel.town }}</td>
             </tr>
             <tr>
-                <th>Keywords</th>
-                <td>{{ category.keywords }}</td>
+                <th>Adress</th>
+                <td>{{ hotel.adress }}</td>
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ category.description }}</td>
+                <td>{{ hotel.description }}</td>
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ category.image }}</td>
+                <td>{{ hotel.image }}</td>
             </tr>
             <tr>
-                <th>Status</th>
-                <td>{{ category.status }}</td>
+                <th>Create_at</th>
+                <td>{{ hotel.createAt ? hotel.createAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
-                <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Updated_at</th>
-                <td>{{ category.updatedAt ? category.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <th>Update_at</th>
+                <td>{{ hotel.updateAt ? hotel.updateAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_category_index') }}">back to list</a>
+    <a href="{{ path('app_hotel_index') }}">back to list</a>
 
-    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
+    <a href="{{ path('app_hotel_edit', {'id': hotel.id}) }}">edit</a>
 
-    {{ include('Admin/category/_delete_form.html.twig') }}
+    {{ include('Admin/hotel/_delete_form.html.twig') }}
 
     <div class="card-footer">
           hôtel Hypsos

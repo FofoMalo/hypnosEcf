@@ -1,6 +1,6 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block title %}Edit Category{% endblock %}
+{% block title %}Edit Hotel{% endblock %}
 
 {% block body %}
 
@@ -24,7 +24,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+  <section class="content">
 
       <!-- Default box -->
       <div class="card">
@@ -44,15 +44,17 @@
           Hotel Hypsos
         </div>
         <!-- /.card-body -->
-        <h1>Edit Category</h1>
 
-    {{ include('Admin/category/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_category_index') }}">back to list</a>
+    <h1>Edit Hotel</h1>
 
-    {{ include('Admin/category/_delete_form.html.twig') }}
+    {{ include('Admin/hotel/_form.html.twig', {'button_label': 'Update'}) }}
 
-     <div class="card-footer">
+    <a href="{{ path('app_hotel_index') }}">retour</a>
+
+    {{ include('Admin/hotel/_delete_form.html.twig') }}
+
+    <div class="card-footer">
           hôtel Hypsos
         </div>
         <!-- /.card-footer-->
