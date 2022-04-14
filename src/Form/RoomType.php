@@ -2,38 +2,38 @@
 
 namespace App\Form;
 
-use App\Entity\Hotel;
-use App\Entity\Gerant;
 use App\Entity\Room;
+use App\Entity\Gerant;
+use App\Entity\Hotel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
-class HotelType extends AbstractType
+class RoomType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('town')
-            ->add('adress')
-            ->add('description')
-            ->add('details', CKEditorType::class, array(
+            ->add('room_name')
+            ->add('status')
+            ->add('price')
+            ->add('Room_Price')
+            ->add('hotel_name')
+            ->add('detail', CKEditorType::class, array(
                 'config' => array(
                     'uiColor' => '#ffffff',
                     //...
                 ),
             ))
             ->add('image')
-            
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Hotel::class,
+            'data_class' => Room::class,
         ]);
     }
 }

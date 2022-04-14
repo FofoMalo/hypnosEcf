@@ -36,10 +36,23 @@ class AppFixtures extends Fixture
                    ->setEmail($faker->email())
                    ->setRoles([''])
                    ->setPassword($faker->password());
+
  
 
             $manager->persist($gerant);
         }
+
+        for($k=0; $k < 10; $k++){
+            $room = new Room();
+
+            $room->setRoomName($faker->name())
+                 ->setRoomPrice($faker->randomFloat(null,2,100))
+                 ->setStatus($faker->boolean());
+ 
+
+            $manager->persist($room);
+        }
+
 
         $manager->flush();
     }

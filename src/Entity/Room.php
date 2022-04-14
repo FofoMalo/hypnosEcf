@@ -34,6 +34,12 @@ class Room
     #[ORM\Column(type: 'decimal', precision: 6, scale: 2, nullable: true)]
     private $Room_Price;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $image;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $details;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +125,30 @@ class Room
     public function setRoomPrice(?string $Room_Price): self
     {
         $this->Room_Price = $Room_Price;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    public function setDetails(?string $details): self
+    {
+        $this->details = $details;
 
         return $this;
     }

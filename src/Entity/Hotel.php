@@ -42,6 +42,9 @@ class Hotel
     #[ORM\OneToOne(mappedBy: 'hotel', targetEntity: Gerant::class, cascade: ['persist', 'remove'])]
     private $gerant;
 
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $details;
+
     public function __construct()
     {
         $this->rooms = new ArrayCollection();
@@ -184,6 +187,18 @@ class Hotel
         }
 
         $this->gerant = $gerant;
+
+        return $this;
+    }
+
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    public function setDetails(?string $details): self
+    {
+        $this->details = $details;
 
         return $this;
     }
