@@ -34,6 +34,12 @@ class Room
     #[ORM\Column(type: 'decimal', precision: 6, scale: 2, nullable: true)]
     private $Room_Price;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $image;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $details;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,6 +68,7 @@ class Room
 
         return $this;
     }
+
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -122,4 +129,30 @@ class Room
 
         return $this;
     }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    public function setDetails(?string $details): self
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+    
+    
 }

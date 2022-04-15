@@ -14,19 +14,7 @@
           <img src="{{ asset('assets')}}/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
+          <a href="/admin" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -45,7 +33,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="/admin" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nouveau
                     <span class="right badge badge-danger">New</span>
@@ -53,13 +41,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="/edit" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Accepter</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
+                <a href="/delete" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Annuler</p>
                 </a>
@@ -70,16 +58,29 @@
                   <p>Complet</p>
                 </a>
               </li>
-
-
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/gerant" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Gerants
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="/admin/hotel" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Hotels
-              
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/room" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Suites/Room
               </p>
             </a>
           </li>
@@ -94,7 +95,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Warning</p>
+              <p>Attention</p>
             </a>
           </li>
           <li class="nav-item">

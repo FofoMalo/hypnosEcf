@@ -28,7 +28,7 @@ class HotelController extends AbstractController
         $form = $this->createForm(HotelType::class, $hotel);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) { 
             $hotelRepository->add($hotel);
             return $this->redirectToRoute('app_hotel_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -38,7 +38,7 @@ class HotelController extends AbstractController
             'form' => $form,
         ]);
     }
-
+    
     #[Route('/{id}', name: 'app_hotel_show', methods: ['GET'])]
     public function show(Hotel $hotel): Response
     {
@@ -63,7 +63,7 @@ class HotelController extends AbstractController
             'form' => $form,
         ]);
     }
-
+    
     #[Route('/{id}', name: 'app_hotel_delete', methods: ['POST'])]
     public function delete(Request $request, Hotel $hotel, HotelRepository $hotelRepository): Response
     {
@@ -73,4 +73,10 @@ class HotelController extends AbstractController
 
         return $this->redirectToRoute('app_hotel_index', [], Response::HTTP_SEE_OTHER);
     }
+    public function __toString()
+    {
+        return $this->gerant;
+    }
+
+    
 }

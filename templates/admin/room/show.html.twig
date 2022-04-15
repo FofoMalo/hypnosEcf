@@ -1,0 +1,100 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Room{% endblock %}
+
+{% block body %}
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Vos Suites Disponibles</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+              <li class="breadcrumb-item active">Suites active</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Liste des Suites</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+
+            <h1>Suites</h1>
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ room.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Room_name</th>
+                        <td>{{ room.roomName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Created_at</th>
+                        <td>{{ room.createdAt ? room.createdAt|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Update_at</th>
+                        <td>{{ room.updateAt ? room.updateAt|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>{{ room.status ? 'Yes' : 'No' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ room.price }}</td>
+                    </tr>
+                    <tr>
+                        <th>Room_Price</th>
+                        <td>{{ room.RoomPrice }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ path('app_room_index') }}" class="btn btn-info">retour à la liste</a>
+
+            <a href="{{ path('app_room_edit', {'id': room.id}) }}" class="btn btn-info">edit</a>
+
+            {{ include('Admin/room/_delete_form.html.twig') }}
+
+        </div>
+        <!-- /.card-body -->
+
+    <div class="card-footer">
+          hôtel Hypsos
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}

@@ -39,10 +39,17 @@ class Hotel
     #[ORM\OneToMany(mappedBy: 'hotel_name', targetEntity: Room::class)]
     private $rooms;
 
+    #[ORM\OneToOne(mappedBy: 'hotel', targetEntity: Gerant::class, cascade: ['persist', 'remove'])]
+    private $gerant;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $details;
+
     public function __construct()
     {
         $this->rooms = new ArrayCollection();
     }
+    
 
     public function getId(): ?int
     {
@@ -140,6 +147,8 @@ class Hotel
     {
         return $this->rooms;
     }
+    
+   
 
     public function addRoom(Room $room): self
     {
@@ -161,5 +170,48 @@ class Hotel
         }
 
         return $this;
+    }
+    
+    
+
+    public function getGerant(): ?Gerant
+    {
+        return $this->gerant;
+    }
+
+    public function setGerant(?Gerant $gerant): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($gerant === null && $this->gerant !== null) {
+            $this->gerant->setHotel(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($gerant !== null && $gerant->getHotel() !== $this) {
+            $gerant->setHotel($this);
+        }
+
+        $this->gerant = $gerant;
+
+        return $this;
+    }
+
+    
+
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    public function setDetails(?string $details): self
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+    
+    public function __toString()
+    {
+        return $this->name;
     }
 }
