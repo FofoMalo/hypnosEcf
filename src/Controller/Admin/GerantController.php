@@ -32,12 +32,13 @@ class GerantController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $gerantRepository->add($gerant);
-            $gerant->setPassword(
+           /* $user->setPassword(
                 $userPasswordHasher->hashPassword(
-                        $gerant,
+                        $user,
                         $form->get('plainPassword')->getData()
                     )
                 );
+                */
             return $this->redirectToRoute('app_gerant_index', [], Response::HTTP_SEE_OTHER);
         }
 

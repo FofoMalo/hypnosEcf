@@ -19,7 +19,7 @@ class GerantType extends AbstractType
             ->add('name')
             ->add('create_at')
             ->add('update_at')
-            ->add('hotel')
+           // ->add('hotel')
         ;
     }
 

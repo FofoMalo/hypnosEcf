@@ -159,4 +159,5 @@ class Gerant implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->name;
     }
+
 }
