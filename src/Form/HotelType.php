@@ -19,6 +19,7 @@ class HotelType extends AbstractType
             ->add('town')
             ->add('adress')
             ->add('description')
+            ->add('gerant')
             ->add('details', CKEditorType::class, array(
                 'config' => array(
                     'uiColor' => '#ffffff',

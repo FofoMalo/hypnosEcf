@@ -20,7 +20,7 @@ class RoomType extends AbstractType
             ->add('price')
             ->add('Room_Price')
             ->add('hotel_name')
-            ->add('detail', CKEditorType::class, array(
+            ->add('details', CKEditorType::class, array(
                 'config' => array(
                     'uiColor' => '#ffffff',
                     //...

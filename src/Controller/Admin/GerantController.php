@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Gerant;
 use App\Form\GerantType;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use App\Repository\GerantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +23,8 @@ class GerantController extends AbstractController
     }
 
     #[Route('/new', name: 'app_gerant_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, GerantRepository $gerantRepository): Response
+    public function new(Request $request,UserPasswordHasherInterface $userPasswordHasher, 
+    GerantRepository $gerantRepository): Response
     {
         $gerant = new Gerant();
         $form = $this->createForm(GerantType::class, $gerant);
@@ -30,6 +32,12 @@ class GerantController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $gerantRepository->add($gerant);
+            $gerant->setPassword(
+                $userPasswordHasher->hashPassword(
+                        $gerant,
+                        $form->get('plainPassword')->getData()
+                    )
+                );
             return $this->redirectToRoute('app_gerant_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -48,7 +56,8 @@ class GerantController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_gerant_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Gerant $gerant, GerantRepository $gerantRepository): Response
+    public function edit(Request $request, Gerant $gerant, UserPasswordHasherInterface $userPasswordHasher, 
+    GerantRepository $gerantRepository): Response
     {
         $form = $this->createForm(GerantType::class, $gerant);
         $form->handleRequest($request);
@@ -63,6 +72,7 @@ class GerantController extends AbstractController
             'form' => $form,
         ]);
     }
+    
 
     #[Route('/{id}', name: 'app_gerant_delete', methods: ['POST'])]
     public function delete(Request $request, Gerant $gerant, GerantRepository $gerantRepository): Response
@@ -73,4 +83,5 @@ class GerantController extends AbstractController
 
         return $this->redirectToRoute('app_gerant_index', [], Response::HTTP_SEE_OTHER);
     }
+    
 }

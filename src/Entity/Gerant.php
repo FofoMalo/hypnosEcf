@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Repository\GerantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: GerantRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class Gerant implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -152,5 +154,9 @@ class Gerant implements UserInterface, PasswordAuthenticatedUserInterface
         $this->hotel = $hotel;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->name;
     }
 }

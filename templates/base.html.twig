@@ -10,10 +10,38 @@
 
       </head>
     <body "hold-transition sidebar-mini">
-        {% block header %} {% include "admin/header.html.twig" %} {% endblock %}
-		{% block sidebar %} {% include "admin/sidebar.html.twig" %} {% endblock %}
-		{% block body %}{% endblock %}
-        {% block footer %} {% include "admin/footer.html.twig" %} {% endblock %}
+        <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand">Navbar</a>
+                        {% if app.user %}
+                                <div>
+                                        Bonjour {{ app.user.username }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+                                </div>
+                        {% else %}
+                                <div>
+                                        <a class="btn btn-sm btn-primary" href="{{ path('utilisateur_new') }}">S'inscrire</a>
+                                        <a class="btn btn-sm btn-success" href="{{ path('app_login') }}">Se connecter</a>
+                                </div>
+                        {% endif %}
+                </nav>
+                <div class="container">
+                        {% if message is defined %}
+                                <div class="alert alert-danger">
+                                        {{ message }}
+                                </div>
+                        {% endif %}
+
+                  {% block body %}
+                  {% endblock %}
+                </div>
+            {% block javascripts %}
+                    <script
+                            src="https://code.jquery.com/jquery-3.5.1.min.js"
+                            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+                    crossorigin="anonymous">
+                    </script>
+                    <script src="/js/script.js"></script>
+                {% endblock %}
+       
         
     </body>
 </html>

@@ -49,6 +49,7 @@ class Hotel
     {
         $this->rooms = new ArrayCollection();
     }
+    
 
     public function getId(): ?int
     {
@@ -146,6 +147,8 @@ class Hotel
     {
         return $this->rooms;
     }
+    
+   
 
     public function addRoom(Room $room): self
     {
@@ -168,6 +171,8 @@ class Hotel
 
         return $this;
     }
+    
+    
 
     public function getGerant(): ?Gerant
     {
@@ -191,6 +196,8 @@ class Hotel
         return $this;
     }
 
+    
+
     public function getDetails(): ?string
     {
         return $this->details;
@@ -201,5 +208,10 @@ class Hotel
         $this->details = $details;
 
         return $this;
+    }
+    
+    public function __toString()
+    {
+        return $this->name;
     }
 }

@@ -63,6 +63,10 @@ class RoomController extends AbstractController
             'form' => $form,
         ]);
     }
+    public function __toString()
+    {
+        return $this->hotel_name;
+    }
 
     #[Route('/{id}', name: 'app_room_delete', methods: ['POST'])]
     public function delete(Request $request, Room $room, RoomRepository $roomRepository): Response
