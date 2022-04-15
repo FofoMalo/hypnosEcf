@@ -14,11 +14,11 @@ class GerantType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('roles')
+            //->add('roles')
             ->add('password')
             ->add('name')
-            ->add('create_at')
-            ->add('update_at')
+           // ->add('create_at')
+           // ->add('update_at')
            // ->add('hotel')
         ;
     }
