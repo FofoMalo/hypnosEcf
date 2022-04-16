@@ -32,13 +32,14 @@ class GerantController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $gerantRepository->add($gerant);
-           /* $user->setPassword(
+            // encode the plain password
+            $gerant->setPassword(
                 $userPasswordHasher->hashPassword(
-                        $user,
-                        $form->get('plainPassword')->getData()
+                        $gerant,
+                        $form->get('password')->getData()
                     )
                 );
-                */
+
             return $this->redirectToRoute('app_gerant_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -65,6 +66,13 @@ class GerantController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $gerantRepository->add($gerant);
+             // encode the plain password
+             $gerant->setPassword(
+                $userPasswordHasher->hashPassword(
+                        $gerant,
+                        $form->get('password')->getData()
+                    )
+                );
             return $this->redirectToRoute('app_gerant_index', [], Response::HTTP_SEE_OTHER);
         }
 
