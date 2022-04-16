@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Gerant;
-use App\Form\RegistrationFormType;
+//use App\Form\RegistrationFormType;
+use App\Form\GerantType;
 use App\Security\GerantAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,7 +23,7 @@ class RegistrationController extends AbstractController
     EntityManagerInterface $entityManager): Response
     {
         $user = new Gerant();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(GerantType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -30,7 +31,7 @@ class RegistrationController extends AbstractController
             $user->setPassword(
             $userPasswordHasher->hashPassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('password')->getData()
                 )
             );
 
@@ -45,7 +46,7 @@ class RegistrationController extends AbstractController
             );
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('registration/adminregister.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

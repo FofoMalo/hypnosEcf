@@ -34,7 +34,7 @@ class AppFixtures extends Fixture
 
             $gerant->setName($faker->name())
                    ->setEmail($faker->email())
-                   ->setRoles([''])
+                   ->setRoles([])
                    ->setPassword($faker->password());
 
  

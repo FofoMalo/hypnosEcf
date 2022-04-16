@@ -51,8 +51,6 @@
                     <th>Roles</th>
                     <th>Password</th>
                     <th>Name</th>
-                    <th>Create_at</th>
-                    <th>Update_at</th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -64,8 +62,6 @@
                     <td>{{ gerant.roles ? gerant.roles|json_encode : '' }}</td>
                     <td>{{ gerant.password }}</td>
                     <td>{{ gerant.name }}</td>
-                    <td>{{ gerant.createAt ? gerant.createAt|date('Y-m-d') : '' }}</td>
-                    <td>{{ gerant.updateAt ? gerant.updateAt|date('Y-m-d') : '' }}</td>
                     <td>
                         <a href="{{ path('app_gerant_show', {'id': gerant.id}) }}" class="btn btn-block btn-info">show</a>
                     </td>
