@@ -15,6 +15,7 @@ class GerantType extends AbstractType
     {
         $builder
             ->add('email')
+            ->add('name')
             ->add('roles', ChoiceType::class, [
                     'choices'=> [
                         'Admin'=> 'ROLE_ADMIN',
@@ -25,7 +26,6 @@ class GerantType extends AbstractType
             'label' => 'Rôles' 
             ])
             ->add('password')
-            ->add('name')
            
         ;
     }
