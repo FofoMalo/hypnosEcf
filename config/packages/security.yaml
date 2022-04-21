@@ -24,8 +24,12 @@ security:
             custom_authenticator: App\Security\GerantAuthenticator
             logout:
                 path: app_logout
+            form_login:
+                login_path: login
+                check_path: login
+
                 # where to redirect after logout
-                target: /
+                target: /login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
