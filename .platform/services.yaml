@@ -1,0 +1,7 @@
+
+database:
+    type: mysql:10.5database:
+    type: postgresql:13
+    disk: 1024
+hypnos:
+    type: mysql:10.5
