@@ -4,11 +4,7 @@ namespace App\Tests;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Gerant;
-use App\Entity\Hotel;
-use App\Entity\Room;
 
-use function PHPUnit\Framework\assertContains;
-use function PHPUnit\Framework\assertTrue;
 
 class GerantTestUnit extends TestCase
 {
