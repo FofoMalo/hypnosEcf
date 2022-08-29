@@ -1,9 +1,7 @@
-$primary:#020A1E;
-$secondary:#11FFB4;
-$success:#020A1E;
-$info:#11ffb4;
+$custom-color_1: #020A1E;
+$custom-color_2:#11FFB4;
 $light-dark:hsla(223, 88%, 6%, 0.30);
-$text-color:$secondary;
+$text-color:$custom-color_1;
 
 * {
   box-sizing: border-box;
@@ -12,10 +10,10 @@ $text-color:$secondary;
 }
 
 .bg-dark {
-  color: $secondary;
+  color: $custom-color_2;
   background-color: $light-dark;
 }
 .bg-light {
-  color: $primary;
-  background-color: #11ffb4;
+  color: $custom-color_2;
+  background-color: #ffffff;
 }

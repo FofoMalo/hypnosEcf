@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Vos Suites</h1>
+            <h1>Suites</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-              <li class="breadcrumb-item active">Suites active</li>
+              <li class="breadcrumb-item active">Suite active</li>
             </ol>
           </div>
         </div>
@@ -84,8 +84,9 @@
                 {% endfor %}
                 </tbody>
             </table>
-
+            <div class="card-header">
             <a href="{{ path('app_room_new') }}"  class="btn btn-primary">Creer Nouvelle</a>
+            </div>
           </div>
          <!-- /.card-body -->  
         <div class="card-footer">
