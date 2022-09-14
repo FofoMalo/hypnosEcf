@@ -12,8 +12,8 @@ class GerantTestUnit extends TestCase
     {
         $gerant = new Gerant();
         $gerant ->setName('Nom')
-                    ->setEmail('for@test.com')
-                    ->setPassword('password');
+                ->setEmail('for@test.com')
+                ->setPassword('password');
 
         $this->assertTrue($gerant->getName()==='Nom');
         $this->assertTrue($gerant->getEmail()==='for@test.com');
