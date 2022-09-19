@@ -1,0 +1,17 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-dark {
+  color: #11FFB4;
+  background-color: rgba(2, 9, 29, 0.3);
+}
+
+.bg-light {
+  color: #11FFB4;
+  background-color: #ffffff;
+}
+/*# sourceMappingURL=custom.css.map */
